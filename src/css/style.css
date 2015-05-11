@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    color: #232323;
+    padding-left: 0px;
+    background-attachment: scroll;
+    background-color: #F2F3F5;
+    width: 100%;
+}
+.title {
+    font-size: 40px;
+    text-align: center;
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid gray;
+}
+.left {
+    width: 15%;
+    height: 100%;
+    border-right: 1px solid gray;
+    float: left;
+    padding-left: 20px;
+    padding-right: 10px;
+    padding-top: 0px;
+    background-color: #F2F3F5;
+}
+.content {
+    height: 95%;
+    padding-top: 20px;
+    width: 80%;
+    float: right;
+    overflow-y: scroll;
+}
+.main {
+    width: 100%;
+    height: 600px;
+    background-color: white;
+}
+.pagelink {
+    text-decoration: none;
+    color: blue;
+    height: 20px;
+}
+.pagelink:hover {
+    text-decoration: underline;
+}
+.footer {
+    height: 100px;
+    border-top: 1px solid gray;
+    background-color: #BBBDC4;
+}
+.editbox {
+    width: 100%;
+    height: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid gray;
+}
+.editarea {
+    width: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.topicbox {
+    width: 100%;
+    border: 1px solid gray;
+    height: 30px;
+}
+.submitbutton {
+    float: right;
+    width: 100px;
+    height: 30px;
+    font-weight: bold;
+    background-color: blue;
+    cursor: pointer;
+    border: 2px solid gray;
+    color: white;
+    margin-right: 10%;
+}
