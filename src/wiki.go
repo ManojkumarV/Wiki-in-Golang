@@ -68,7 +68,15 @@ func viewHandler(w http.ResponseWriter, r *http.Request) {
 		content = strings.Replace(content, ">", "&gt", -1)
 		content = strings.Replace(content, "\t", "&nbsp;&nbsp;&nbsp;&nbsp;", -1)
 		content = strings.Replace(content, "\n", "<br />", -1)
-		fmt.Fprintf(w, "<div class='content'>%s</div>", content)
+		fmt.Fprintf(w, "<div class='content'>")
+		fmt.Fprintf(w, "<p>%s</p>", content)
+		fmt.Fprintf(w, "<h2>All Articles</h2>")
+		fmt.Fprintf(w, "<div class='article-index'>")
+		for _, f := range files {
+			name := f.Name()[:len(f.Name())-4]
+			fmt.Fprintf(w, "<div class='article-card'><a href='%s'>%s</a></div>", name, name)
+		}
+		fmt.Fprintf(w, "</div></div>")
 	} else if _, err := os.Stat("data/" + title + ".txt"); os.IsNotExist(err) {
 		fmt.Fprintf(w, "<div class='content'><h2>Content Unavailable</h2></div>")
 	} else {
@@ -130,12 +138,16 @@ func addHandler(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/wiki/"+title[5:len(title)-4], http.StatusFound)
 }
 
+func rootHandler(w http.ResponseWriter, r *http.Request) {
+	http.Redirect(w, r, "/wiki/", http.StatusFound)
+}
+
 func main() {
 	http.HandleFunc("/wiki/", viewHandler)
 	http.HandleFunc("/add/", addHandler)
 	http.HandleFunc("/edit/", editHandler)
 	http.HandleFunc("/save/", saveHandler)
 	http.HandleFunc("/new/", newHandler)
-	http.HandleFunc("/", addHandler)
+	http.HandleFunc("/", rootHandler)
 	http.ListenAndServe(":6060", nil)
 }
