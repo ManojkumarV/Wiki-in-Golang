@@ -78,3 +78,27 @@ body {
     color: white;
     margin-right: 10%;
 }
+.article-index {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 10px 20px;
+}
+.article-card {
+    background-color: #F2F3F5;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px 20px;
+    min-width: 180px;
+    text-align: center;
+}
+.article-card a {
+    text-decoration: none;
+    color: blue;
+    font-size: 16px;
+    font-weight: bold;
+}
+.article-card:hover {
+    background-color: #e0e2e8;
+    border-color: blue;
+}
